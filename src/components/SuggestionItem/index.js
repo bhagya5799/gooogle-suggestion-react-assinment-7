@@ -2,10 +2,10 @@
 import './index.css'
 
 const SuggestionItem = props => {
-  const {details, googleSuggestion} = props
+  const {details, updateFinalValue} = props
   const {suggestion, id} = details
   const onClickArrow = () => {
-    googleSuggestion(id)
+    updateFinalValue(suggestion)
     console.log('ll')
   }
 

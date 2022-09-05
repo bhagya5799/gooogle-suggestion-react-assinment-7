@@ -10,10 +10,9 @@ class GoogleSuggestions extends Component {
     searchInput: '',
   }
 
-  googleSuggestion = id => {
+  updateFinalValue = suggestion => {
     const {suggestionsList} = this.props
-    const newList = suggestionsList.filter(eachItem => eachItem.id === id)
-    this.setState({suggestionsList: newList})
+    this.setState({searchInput: suggestion})
   }
 
   onChangeSearchInput = event => {
@@ -43,6 +42,7 @@ class GoogleSuggestions extends Component {
               type="search"
               onChange={this.onChangeSearchInput}
               placeholder="Search google"
+              value={searchInput}
             />
             <img
               src="https://assets.ccbp.in/frontend/react-js/google-search-icon.png"
@@ -54,7 +54,7 @@ class GoogleSuggestions extends Component {
               <SuggestionItem
                 details={eachItem}
                 key={eachItem.id}
-                googleSuggestion={this.googleSuggestion}
+                updateFinalValue={this.updateFinalValue}
               />
             ))}
           </ul>
